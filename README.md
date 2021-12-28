@@ -11,7 +11,17 @@ This plugin parses notes' titles during change events and enters that informatio
 - If the parsed title lacks a valid date, plugin will skip setting a due date
 - Plugin uses [chrono](https://github.com/wanasit/chrono) for NL parsing, see repo for examples
 
-## Building the plugin
+## Development
+
+To cut a new release on Github, edit the version in src/manifest.json then commit the change.
+
+Run:
+```
+make tag
+git push --tags
+```
+
+### Building the plugin
 
 The plugin is built using Webpack, which creates the compiled code in `/dist`. A JPL archive will also be created at the root, which can use to distribute the plugin.
 
@@ -19,7 +29,7 @@ To build the plugin, simply run `npm run dist`.
 
 The project is setup to use TypeScript, although you can change the configuration to use plain JavaScript.
 
-## Updating the plugin framework
+### Updating the plugin framework
 
 To update the plugin framework, run `npm run update`.
 
