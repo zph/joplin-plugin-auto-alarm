@@ -74,3 +74,11 @@ jobs:
       # TODO: setup auto-releases using https://github.com/marketplace/actions/gh-release
       - name: checkout artifacts
         run: ls -lah publish/*
+
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: |
+            publish/io.xargs.JoplinPluginAutoAlarm.jpl
+            publish/io.xargs.JoplinPluginAutoAlarm.json
