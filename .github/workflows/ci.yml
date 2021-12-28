@@ -3,11 +3,9 @@ name: xargs CI
 
 on:
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
   push:
-    branches: [ master ]
-  # schedule:
-  #   - cron: "0 */12 * * *"
+    branches: [ main ]
 
 permissions:
   contents: read
