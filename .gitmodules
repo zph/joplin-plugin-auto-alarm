@@ -1,0 +1,4 @@
+[submodule ".config/joplin-plugin-helpers"]
+	path = .config/joplin-plugin-helpers
+	url = git@github.com:zph/joplin-plugin-helpers.git
+	branch = main
