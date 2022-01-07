@@ -1,0 +1,13 @@
+name: Joplin Plugin Releaser
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+
+jobs:
+  build-and-release:
+    uses: zph/joplin-plugin-helpers/.github/workflows/ci.yml@main
+    secrets:
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
