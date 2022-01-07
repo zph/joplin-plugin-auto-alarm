@@ -1,5 +1,5 @@
 # Credit for overall configuration: https://github.com/brandur/sorg/blob/master/.github/workflows/ci.yml
-name: xargs CI
+name: Joplin Plugin CI
 
 on:
   push:
@@ -79,9 +79,7 @@ jobs:
         with:
           generate_release_notes: true
           files: |
-            publish/io.xargs.JoplinPluginAutoAlarm.jpl
-            publish/io.xargs.JoplinPluginAutoAlarm.json
-            publish/sha256sum.txt
+            publish/*
 
       - uses: actions/setup-node@v1
         with:
