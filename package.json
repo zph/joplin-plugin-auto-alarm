@@ -10,6 +10,9 @@
   "keywords": [
     "joplin-plugin"
   ],
+  "files": [
+    "publish"
+  ],
   "homepage": "https://github.com/zph/joplin-plugin-auto-alarm#readme",
   "devDependencies": {
     "@types/lodash": "^4.14.178",
