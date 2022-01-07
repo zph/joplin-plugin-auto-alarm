@@ -23,9 +23,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: submodules are the devil
-        run: |
-          git pull --recurse-submodules
+        with:
+          submodules: recursive
       - name: Debug
         run: |
           echo "github.ref=${{ github.ref }}"
