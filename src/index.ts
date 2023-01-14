@@ -1,4 +1,5 @@
 import joplin from "api";
+import { MenuItemLocation, ToolbarButtonLocation } from 'api/types';
 import * as chrono from "chrono-node";
 import {debounce} from "lodash";
 
@@ -35,7 +36,7 @@ const autoAlarmUpdate = async (noteId: string, forceUpdate: boolean) => {
   console.info("Updated notes due date: ", note, date.getTime());
 };
 
-const debouncedAlarmUpdate = debounce((id: string) => autoAlarmUpdate(id, false), 5000, {trailing: true, leading: false})
+const debouncedAlarmUpdate = debounce((id: string) => autoAlarmUpdate(id, false), 1000, {trailing: true, leading: false})
 
 joplin.plugins.register({
   onStart: async function () {
@@ -62,5 +63,17 @@ joplin.plugins.register({
       // Wait until DELAY since last time event was sent to improve odds that full content is in TITLE
       await debouncedAlarmUpdate(event.id)
     });
+
+    // add accelerator
+		await joplin.views.toolbarButtons.create('autoAlarmViaToolbarButtons', 'autoAlarmUpdate', ToolbarButtonLocation.EditorToolbar);
+
+		await joplin.views.menuItems.create('autoAlarmViaMenuItems', 'autoAlarmUpdate', MenuItemLocation.EditorContextMenu, { accelerator: "Ctrl+Shift+M" });
+
+		await joplin.views.menus.create('autoAlarmViaMenu', 'Auto alarm update', [
+			{
+				commandName: "autoAlarmUpdate",
+				accelerator: "Ctrl+Shift+m"
+			}
+		]);
   },
 });
