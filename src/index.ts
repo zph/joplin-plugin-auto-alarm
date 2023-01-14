@@ -54,8 +54,8 @@ joplin.plugins.register({
       // Inlined because of definition difficulties
       enum ItemChangeEventType {
         Create = 1,
-        Update = 2,
-        Delete = 3,
+          Update = 2,
+          Delete = 3,
       }
 
       console.info("autoAlarm called for onNoteChange", event, ItemChangeEventType.Update);
@@ -65,15 +65,15 @@ joplin.plugins.register({
     });
 
     // add accelerator
-		await joplin.views.toolbarButtons.create('autoAlarmViaToolbarButtons', 'autoAlarmUpdate', ToolbarButtonLocation.EditorToolbar);
+    await joplin.views.toolbarButtons.create('autoAlarmViaToolbarButtons', 'autoAlarmUpdate', ToolbarButtonLocation.EditorToolbar);
 
-		await joplin.views.menuItems.create('autoAlarmViaMenuItems', 'autoAlarmUpdate', MenuItemLocation.EditorContextMenu, { accelerator: "Ctrl+Shift+M" });
+    await joplin.views.menuItems.create('autoAlarmViaMenuItems', 'autoAlarmUpdate', MenuItemLocation.EditorContextMenu, { accelerator: "Ctrl+Shift+M" });
 
-		await joplin.views.menus.create('autoAlarmViaMenu', 'Auto alarm update', [
-			{
-				commandName: "autoAlarmUpdate",
-				accelerator: "Ctrl+Shift+m"
-			}
-		]);
+    await joplin.views.menus.create('autoAlarmViaMenu', 'Auto alarm update', [
+      {
+        commandName: "autoAlarmUpdate",
+        accelerator: "Ctrl+Shift+m"
+      }
+    ]);
   },
 });
